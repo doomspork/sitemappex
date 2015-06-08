@@ -8,7 +8,8 @@ defmodule Sitemappex.LinkStoreTest do
 
   test "responds to new and existing correctly", %{link_store: link_store} do
     assert :new = Sitemappex.LinkStore.add(link_store, "http://example.org")
-    assert {:existing, _} = Sitemappex.LinkStore.add(link_store, "http://example.org")
+    assert {:existing, count} = Sitemappex.LinkStore.add(link_store, "http://example.org")
+    assert ^count = 2
   end
 
   test "responds to to_list", %{link_store: link_store} do
