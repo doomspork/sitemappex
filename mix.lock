@@ -1,0 +1,2 @@
+%{"red_black_tree": {:hex, :red_black_tree, "1.1.0"},
+  "sorted_set": {:hex, :sorted_set, "1.0.0"}}
