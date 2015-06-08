@@ -1,0 +1,2 @@
+defmodule Sitemappex do
+end
