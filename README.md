@@ -9,6 +9,29 @@ _Coming soon..._
 
 ## Usage
 
+To use `Sitemappex`, there is the `map_links/2` function. It takes two arguments, a starting URL and an optional list of whitelisted domains.  The result of it is a list of tuples: `[{url, occurrences}]`
+
+See it in action:
+
+##### example.com
+
+```html
+<html>
+  <body>
+    <a href="http://www.example.com/blog">Blog</a>
+    <a href="http://www.othersite.com">Blog</a>
+  </body>
+</html>
+```
+_Assumption: Neither "example.com/blog" or "othersite.com" have additional links._
+
+```elixir
+iex> Sitemappex.map_links("http://example.com")
+[{"http://www.example.com/blog", 1}, {"http://www.othersite.com", 1}]
+
+iex> Sitemappex.map_links("http://example.com", ["example.com"])
+[{"http://www.example.com/blog", 1}]
+```
 
 ## Contributing
 
