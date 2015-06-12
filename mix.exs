@@ -3,7 +3,7 @@ defmodule Sitemappex.Mixfile do
 
   def project do
     [app: :sitemappex,
-     version: "0.0.1",
+     version: "0.1.0",
      elixir: "~> 1.0",
      escript: [main_module: Sitemappex],
      build_embedded: Mix.env == :prod,
