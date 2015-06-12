@@ -5,6 +5,7 @@ defmodule Sitemappex.Mixfile do
     [app: :sitemappex,
      version: "0.0.1",
      elixir: "~> 1.0",
+     escript: [main_module: Sitemappex],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -14,7 +15,7 @@ defmodule Sitemappex.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +28,10 @@ defmodule Sitemappex.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:sorted_set, "~> 1.0"}]
+    [
+      {:exvcr, "~> 0.4"},
+      {:floki, "~> 0.3"},
+      {:httpoison, "~> 0.7"}
+    ]
   end
 end
