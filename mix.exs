@@ -29,7 +29,7 @@ defmodule Sitemappex.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:exvcr, "~> 0.4"},
+      {:exvcr, "~> 0.4", only: :test},
       {:floki, "~> 0.3"},
       {:httpoison, "~> 0.7"}
     ]
