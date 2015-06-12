@@ -15,4 +15,11 @@ defmodule SitemappexTest do
       assert 3 = length(result)
     end
   end
+
+  test "with whitelisted domains" do
+    use_cassette "whitelisted_examples", custom: true do
+      result = Sitemappex.map_links("http://example.com", ["example.com"])
+      assert 1 = length(result)
+    end
+  end
 end

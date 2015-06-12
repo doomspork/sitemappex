@@ -11,7 +11,7 @@ defmodule Sitemappex do
     |> Enum.map(&([&1, map_links(&1)]))
   end
 
-  def map_links(starting_url) do
+  def map_links(starting_url, whitelist \\ []) do
     import Supervisor.Spec
 
     children = [
@@ -24,21 +24,23 @@ defmodule Sitemappex do
     new_worker(starting_url)
 
     Sitemappex.LinkStore
-    |> crawl(%{finished: 0, requested: 1})
+    |> crawl(whitelist, %{finished: 0, requested: 1})
     |> to_list
   end
 
-  defp crawl(link_store, status = %{finished: f, requested: n}) when (f != n) do
+  defp crawl(link_store, whitelist, status = %{finished: f, requested: n}) when (f != n) do
     receive do
       {:link, url} ->
-        status = handle_link(link_store, url, status)
-        crawl(link_store, status)
+        if is_whitelisted(url, whitelist) do
+          status = handle_link(link_store, url, status)
+        end
+        crawl(link_store, whitelist, status)
       :done ->
-        crawl(link_store, %{status | finished: f + 1} )
+        crawl(link_store, whitelist, %{status | finished: f + 1} )
     end
   end
 
-  defp crawl(link_store, %{finished: f, requested: n}) when (f == n) do
+  defp crawl(link_store, _, %{finished: f, requested: n}) when (f == n) do
     link_store
   end
 
@@ -53,6 +55,13 @@ defmodule Sitemappex do
         %{status | requested: n + 1}
       {:existing, _} ->
         status
+    end
+  end
+
+  defp is_whitelisted(url, whitelist) do
+    case length(whitelist) do
+      0 -> true
+      _ -> Enum.any?(whitelist, fn (listed) -> String.contains?(url, listed) end)
     end
   end
 

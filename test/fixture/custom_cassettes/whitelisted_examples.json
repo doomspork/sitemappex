@@ -1,0 +1,27 @@
+[
+  {
+    "request":{
+      "url":"http://example.com"
+    },
+    "response":{
+      "status_code":200,
+      "headers":{
+        "Content-Type":"text/html"
+      },
+      "body":"<html><body><a href=\"http://example.com/one\">A Link</a><a href=\"http://example.org\">A Link</a></body></html>"
+    }
+  },
+  {
+    "request":{
+      "url":"http://example.com/one"
+    },
+    "response":{
+      "status_code":200,
+      "headers":{
+        "Content-Type":"text/html"
+      },
+      "body":"<html><body></body></html>"
+    }
+  }
+]
+
