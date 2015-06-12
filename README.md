@@ -5,7 +5,11 @@ A site mapper built in Elixir.
 
 ## Installation
 
-_Coming soon..._
+Add it to your `mix.exs`:
+
+```elixir
+  {:sitemappex, "~> 0.1", github: "doomspork/sitemappex"}
+```
 
 ## Usage
 
