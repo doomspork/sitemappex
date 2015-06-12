@@ -1,10 +1,14 @@
 # Sitemappex
+[![Build Status](https://secure.travis-ci.org/doomspork/sitemappex.png?branch=master)](http://travis-ci.org/doomspork/sitemappex) [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
 A site mapper built in Elixir.
 
 ## Installation
 
 _Coming soon..._
+
+## Usage
+
 
 ## Contributing
 
