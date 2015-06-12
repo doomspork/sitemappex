@@ -1,2 +1,13 @@
-%{"red_black_tree": {:hex, :red_black_tree, "1.1.0"},
-  "sorted_set": {:hex, :sorted_set, "1.0.0"}}
+%{"exactor": {:hex, :exactor, "2.1.2"},
+  "exjsx": {:hex, :exjsx, "3.1.0"},
+  "exvcr": {:hex, :exvcr, "0.4.0"},
+  "floki": {:hex, :floki, "0.3.0"},
+  "hackney": {:hex, :hackney, "1.1.0"},
+  "httpoison": {:hex, :httpoison, "0.7.0"},
+  "idna": {:hex, :idna, "1.0.2"},
+  "jsx": {:hex, :jsx, "2.4.0"},
+  "meck": {:hex, :meck, "0.8.2"},
+  "mochiweb": {:hex, :mochiweb, "2.12.2"},
+  "red_black_tree": {:hex, :red_black_tree, "1.1.0"},
+  "sorted_set": {:hex, :sorted_set, "1.0.0"},
+  "ssl_verify_hostname": {:hex, :ssl_verify_hostname, "1.0.5"}}
