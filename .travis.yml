@@ -5,5 +5,3 @@ otp_release:
 sudo: false
 before_script:
   - mix deps.get --only test
-script:
-  - mix test
